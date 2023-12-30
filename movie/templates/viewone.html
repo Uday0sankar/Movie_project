@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content  %}
+<title>view book</title>
+<h1><center>view movies</center></h1>
+
+<table class="table table-bordered" >
+    <tr>
+        <th>POSTER</th>
+        <td><img src="{{movie.poster.url}}" style="height:200px;width:200px;"></td>
+    </tr>
+    <tr>
+        <th>TITLE</th>
+        <td>{{movie.title}}</td>
+    </tr>
+    <tr>
+        <th>DIRECTOR</th>
+        <td>{{movie.director}}</td>
+    </tr>
+    <tr>
+        <th>YEAR</th>
+        <td>{{movie.year}}</td>
+    </tr>
+    <tr>
+        <th>ABOUT</th>
+        <td>{{movie.about}}</td>
+    </tr>
+    <tr>
+        <th>MORE</th>
+        <td><a href=" {{movie.link}}">More..</a></td>
+    </tr>
+</table>
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col">
+        <a href="{% url 'card:editM' movie.id %}" > <button>EDIT</button></a>
+    </div>
+    <div class="col order-first">
+        <a href="{%url 'card:deleteM'  movie.id  %}" ><button>DELETE</button></a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content  %}
+<title>view book</title>
+<h1><center>view movies</center></h1>
+<table class="table table-border" >
+
+    <tr>
+         <th>POSTER</th>
+        <th>TITLE</th>
+        <th>DIRECTOR</th>
+        <th>ABOUT</th>
+        <th>YEAR</th>
+        <th>MORE</th>
+        <th>VIEW</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+
+    </tr>
+   {% for i in book %}
+    <tr>
+        <td><img src="{{i.poster.url}}"  style="height:40px;width:40px;"></td>
+        <td>{{i.title}}</td>
+        <td>{{i.director}}</td>
+        <TD>{{i.about}}}</TD>
+        <td>{{ i.year}}</td>
+        <td><a href="{i.link}">More..</a></td>
+         <td><a class="btn btn-danger" href="{%url 'card:viewone' movie.id %}" >VIEW</a></td>
+         <td><a class="btn btn-danger" href="" >EDIT</a></td>
+         <td><a class="btn btn-danger" href="">DELETE</a></td>
+    </tr>
+
+
+</table>
+
+    {% endfor %}
+
+{% endblock %}
